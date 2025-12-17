@@ -4,7 +4,7 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let confettis = [];
+let confetti = [];
 
 function createConfetti() {
     return {
@@ -12,26 +12,23 @@ function createConfetti() {
         y: Math.random() * canvas.height - canvas.height,
         size: Math.random() * 6 + 4,
         speed: Math.random() * 3 + 2,
-        color: `hsl(${Math.random() * 360}, 100%, 50%)`
+        color: `hsl(${Math.random() * 360},100%,50%)`
     };
 }
 
 function startConfetti() {
-    confettis = [];
+    confetti = [];
     for (let i = 0; i < 150; i++) {
-        confettis.push(createConfetti());
+        confetti.push(createConfetti());
     }
 
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        confettis.forEach(c => {
+        confetti.forEach(c => {
             ctx.fillStyle = c.color;
             ctx.fillRect(c.x, c.y, c.size, c.size);
             c.y += c.speed;
-
-            if (c.y > canvas.height) {
-                c.y = -10;
-            }
+            if (c.y > canvas.height) c.y = -10;
         });
         requestAnimationFrame(animate);
     }
@@ -41,7 +38,7 @@ function startConfetti() {
 function showBirthday() {
     const name = document.getElementById("nameInput").value;
 
-    if (name === "") {
+    if (!name) {
         alert("Nama tidak boleh kosong!");
         return;
     }
