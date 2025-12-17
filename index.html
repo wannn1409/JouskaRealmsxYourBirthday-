@@ -3,14 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday</title>
+    <title>Birthday Greeting</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Dekorasi -->
-    <div class="decor left"></div>
-    <div class="decor right"></div>
+<!-- ===== LANDING / BANNER ===== -->
+<section class="landing" id="landing">
+    <div class="landing-text">
+        <h1>BIRTHDAY <span>PARTY</span></h1>
+        <p>Celebrate your special day with warm wishes and happiness 🎉</p>
+        <button onclick="goToInput()">Mulai</button>
+    </div>
+
+    <div class="landing-art">
+        🎂🎉🎈
+    </div>
+</section>
+
+<!-- ===== INPUT NAMA ===== -->
+<div class="container hidden" id="inputSection">
+    <h1>🎉 Birthday Gift 🎉</h1>
+    <p>Masukkan nama kamu</p>
+    <input type="text" id="nameInput" placeholder="Nama kamu">
+    <button onclick="showBirthday()">Lihat Ucapan</button>
+</div>
+
+<!-- ===== CARD ===== -->
+<div class="birthday-card hidden" id="cardSection">
+    <h2>HAPPY BIRTHDAY!!</h2>
+    <div class="card">
+        <h1 id="nameOutput"></h1>
+        <p>
+            Selamat ulang tahun 🎂 <br>
+            Semoga semua keinginanmu tercapai ✨
+        </p>
+    </div>
+    <br>
+    <button onclick="reset()">Ulangi</button>
+</div>
+
+<canvas id="confetti"></canvas>
+
+<script src="script.js"></script>
+</body>
+</html>
 
     <!-- Input Nama -->
     <div class="container" id="inputSection">
