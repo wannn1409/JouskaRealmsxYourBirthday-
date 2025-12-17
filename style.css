@@ -153,3 +153,43 @@ button:hover {
     left: 0;
     pointer-events: none;
 }
+@media (max-width: 480px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .container,
+    .birthday-card {
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .container h1 {
+        font-size: 20px;
+    }
+
+    .birthday-card h2 {
+        font-size: 20px;
+    }
+
+    .card h1 {
+        font-size: 24px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    /* Hiasan pinggir diperkecil */
+    .decor {
+        width: 35px;
+        opacity: 0.25;
+    }
+}
