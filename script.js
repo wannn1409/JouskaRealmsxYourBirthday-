@@ -59,3 +59,8 @@ function reset() {
     document.getElementById("inputSection").classList.remove("hidden");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
+
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
