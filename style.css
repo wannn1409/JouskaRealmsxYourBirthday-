@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #ff7a18;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container,
+.birthday-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 320px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.container h1 {
+    color: #ff7a18;
+    margin-bottom: 10px;
+}
+
+.container input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #ff7a18;
+    margin: 15px 0;
+    outline: none;
+}
+
+button {
+    background: #ff7a18;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #ff5f00;
+}
+
+/* Birthday Card */
+.birthday-card h2 {
+    color: #ff7a18;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.card {
+    border: 3px solid #ff7a18;
+    border-radius: 15px;
+    padding: 20px;
+    background: #fff3e8;
+}
+
+.card h1 {
+    color: #1f3c88;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #333;
+}
+
+.hidden {
+    display: none;
+}
