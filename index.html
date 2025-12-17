@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Hiasan -->
-    <div class="decor decor-left"></div>
-    <div class="decor decor-right"></div>
+    <!-- Dekorasi -->
+    <div class="decor left"></div>
+    <div class="decor right"></div>
 
     <!-- Input Nama -->
-    <div class="container fade-in" id="inputSection">
-        <h1>🎉 Birthday Gift Buat Kamu 🎉</h1>
+    <div class="container" id="inputSection">
+        <h1>🎉 Birthday Gift 🎉</h1>
         <p>Masukkan nama kamu</p>
         <input type="text" id="nameInput" placeholder="Nama kamu">
         <button onclick="showBirthday()">Lihat Ucapan</button>
     </div>
 
     <!-- Kartu Ulang Tahun -->
-    <div class="birthday-card hidden scale-in" id="cardSection">
-        <h2 class="blink">HAPPY BIRTHDAY!!</h2>
+    <div class="birthday-card hidden" id="cardSection">
+        <h2>HAPPY BIRTHDAY!!</h2>
         <div class="card">
             <h1 id="nameOutput"></h1>
             <p>
@@ -30,6 +30,7 @@
                 Semoga semua keinginanmu tercapai ✨
             </p>
         </div>
+        <br>
         <button onclick="reset()">Ulangi</button>
     </div>
 
