@@ -1,3 +1,10 @@
+:root {
+    --sky-blue: #6FA3B8;
+    --sunset-orange: #F2A65A;
+    --sunset-orange-dark: #E08B3E;
+    --white: #ffffff;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,113 +14,106 @@
 
 body {
     min-height: 100vh;
-    background: #ff7a18;
+    background: linear-gradient(to bottom, var(--sky-blue), var(--sunset-orange));
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
+/* ===== DECORATION ===== */
+.decor {
+    position: fixed;
+    top: 0;
+    width: 60px;
+    height: 100vh;
+    background: linear-gradient(to bottom, var(--sky-blue), var(--sunset-orange));
+    opacity: 0.35;
+}
+
+.decor.left {
+    left: 0;
+}
+
+.decor.right {
+    right: 0;
+}
+
+/* ===== CARD ===== */
 .container,
 .birthday-card {
-    background: white;
+    background: var(--white);
+    width: 90%;
+    max-width: 380px;
     padding: 30px;
     border-radius: 20px;
     text-align: center;
-    width: 90%;
-    max-width: 380px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    animation: fadeIn 1s ease;
 }
 
 .container h1 {
-    color: #ff7a18;
+    color: var(--sunset-orange);
     margin-bottom: 10px;
 }
 
-.container input {
+.container p {
+    color: #444;
+}
+
+input {
     width: 100%;
     padding: 12px;
-    border-radius: 10px;
-    border: 2px solid #ff7a18;
     margin: 15px 0;
+    border-radius: 10px;
+    border: 2px solid var(--sunset-orange);
     outline: none;
 }
 
 button {
-    background: #ff7a18;
+    background: var(--sunset-orange);
     color: white;
     border: none;
-    padding: 10px 25px;
+    padding: 12px 25px;
     border-radius: 12px;
     cursor: pointer;
     font-size: 16px;
 }
 
 button:hover {
-    background: #ff5f00;
-}
-
-/* Birthday Card */
-.birthday-card h2 {
-    color: #ff7a18;
-    margin-bottom: 15px;
-    font-size: 22px;
-}
-
-.card {
-    border: 3px solid #ff7a18;
-    border-radius: 15px;
-    padding: 20px;
-    background: #fff3e8;
-}
-
-.card h1 {
-    color: #1f3c88;
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.card p {
-    font-size: 14px;
-    color: #333;
+    background: var(--sunset-orange-dark);
 }
 
 .hidden {
     display: none;
 }
 
-/* ====== DECORATION ====== */
-.decor {
-    position: fixed;
-    top: 0;
-    width: 80px;
-    height: 100vh;
-    background: repeating-linear-gradient(
-        45deg,
-        #ffcc00,
-        #ffcc00 10px,
-        #ff7a18 10px,
-        #ff7a18 20px
-    );
-    opacity: 0.4;
+/* ===== BIRTHDAY CARD ===== */
+.birthday-card h2 {
+    color: var(--sunset-orange);
+    margin-bottom: 15px;
+    animation: blink 1.3s infinite;
 }
 
-.decor-left {
-    left: 0;
+.card {
+    border: 3px solid var(--sunset-orange);
+    padding: 20px;
+    border-radius: 15px;
+    background: #fff7ef;
 }
 
-.decor-right {
-    right: 0;
+.card h1 {
+    color: var(--sky-blue);
+    font-size: 28px;
+    margin-bottom: 10px;
 }
 
-/* ====== ANIMATIONS ====== */
-.fade-in {
-    animation: fadeIn 1s ease;
+.card p {
+    color: #333;
+    font-size: 14px;
 }
 
-.scale-in {
-    animation: scaleIn 0.8s ease;
-}
-
+/* ===== ANIMATION ===== */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -125,38 +125,24 @@ button:hover {
     }
 }
 
-@keyframes scaleIn {
-    from {
-        transform: scale(0.6);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-/* Text Blink */
-.blink {
-    animation: blink 1.2s infinite;
-}
-
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.4; }
 }
 
-/* Confetti Canvas */
+/* ===== CONFETTI ===== */
 #confetti {
     position: fixed;
     top: 0;
     left: 0;
     pointer-events: none;
 }
-@media (max-width: 480px) {
 
-    body {
-        padding: 15px;
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+    .decor {
+        width: 30px;
+        opacity: 0.25;
     }
 
     .container,
@@ -165,31 +151,7 @@ button:hover {
         border-radius: 16px;
     }
 
-    .container h1 {
-        font-size: 20px;
-    }
-
-    .birthday-card h2 {
-        font-size: 20px;
-    }
-
     .card h1 {
         font-size: 24px;
-    }
-
-    .card p {
-        font-size: 14px;
-    }
-
-    button {
-        width: 100%;
-        padding: 12px;
-        font-size: 15px;
-    }
-
-    /* Hiasan pinggir diperkecil */
-    .decor {
-        width: 35px;
-        opacity: 0.25;
     }
 }
