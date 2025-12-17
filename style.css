@@ -21,6 +21,56 @@ body {
     overflow: hidden;
 }
 
+/* ===== LANDING PAGE ===== */
+.landing {
+    width: 100%;
+    min-height: 100vh;
+    background: #f7efe3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px;
+    gap: 30px;
+}
+
+.landing-text {
+    max-width: 500px;
+}
+
+.landing-text h1 {
+    font-size: 48px;
+    color: var(--sunset-orange);
+    line-height: 1.1;
+}
+
+.landing-text h1 span {
+    color: var(--sky-blue);
+}
+
+.landing-text p {
+    margin: 20px 0;
+    color: #555;
+    font-size: 16px;
+}
+
+.landing-text button {
+    padding: 14px 30px;
+    font-size: 16px;
+}
+
+.landing-art {
+    font-size: 120px;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* floating emoji */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+
 /* ===== DECORATION ===== */
 .decor {
     position: fixed;
@@ -139,19 +189,18 @@ button:hover {
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 480px) {
-    .decor {
-        width: 30px;
-        opacity: 0.25;
+@media (max-width: 768px) {
+    .landing {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
     }
 
-    .container,
-    .birthday-card {
-        padding: 20px;
-        border-radius: 16px;
+    .landing-text h1 {
+        font-size: 36px;
     }
 
-    .card h1 {
-        font-size: 24px;
+    .landing-art {
+        font-size: 90px;
     }
 }
