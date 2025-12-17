@@ -19,7 +19,8 @@ body {
     padding: 30px;
     border-radius: 20px;
     text-align: center;
-    width: 320px;
+    width: 90%;
+    max-width: 380px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
