@@ -61,3 +61,8 @@ window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
+
+function goToInput() {
+    document.getElementById("landing").classList.add("hidden");
+    document.getElementById("inputSection").classList.remove("hidden");
+}
