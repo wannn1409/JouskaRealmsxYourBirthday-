@@ -102,6 +102,46 @@ button {
   }
 }
 
+/* ===== MULTI ROW SLIDER ===== */
+.multi-slider {
+  width: 100%;
+  max-width: 900px;
+  overflow: hidden;
+  margin-top: 25px;
+}
+
+.slider-track {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 15px;
+  animation: slideMulti 22s linear infinite;
+}
+
+/* foto 16:9 */
+.photo-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* animasi geser horizontal */
+@keyframes slideMulti {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 
 /* ===== HIDDEN ===== */
 .hidden {
