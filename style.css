@@ -1,206 +1,107 @@
 :root {
-    --sky-blue: #6FA3B8;
-    --sunset-orange: #F2A65A;
-    --sunset-orange-dark: #E08B3E;
+    --blue-1: #5465FF;
+    --blue-2: #788BFF;
+    --blue-3: #9BB1FF;
+    --blue-4: #BFD7FF;
+    --blue-5: #E2FDFF;
     --white: #ffffff;
 }
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
 body {
+    margin: 0;
+    background: linear-gradient(to bottom, var(--blue-4), var(--blue-5));
     min-height: 100vh;
-    background: linear-gradient(to bottom, var(--sky-blue), var(--sunset-orange));
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
 }
 
-/* ===== LANDING PAGE ===== */
+/* LANDING */
 .landing {
-    width: 100%;
-    min-height: 100vh;
-    background: #f7efe3;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 40px;
-    gap: 30px;
-}
-
-.landing-text {
-    max-width: 500px;
-}
-
-.landing-text h1 {
-    font-size: 48px;
-    color: var(--sunset-orange);
-    line-height: 1.1;
-}
-
-.landing-text h1 span {
-    color: var(--sky-blue);
-}
-
-.landing-text p {
-    margin: 20px 0;
-    color: #555;
-    font-size: 16px;
-}
-
-.landing-text button {
-    padding: 14px 30px;
-    font-size: 16px;
-}
-
-.landing-art {
-    font-size: 120px;
-    animation: float 3s ease-in-out infinite;
-}
-
-/* floating emoji */
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0); }
-}
-
-
-/* ===== DECORATION ===== */
-.decor {
-    position: fixed;
-    top: 0;
-    width: 60px;
-    height: 100vh;
-    background: linear-gradient(to bottom, var(--sky-blue), var(--sunset-orange));
-    opacity: 0.35;
-}
-
-.decor.left {
-    left: 0;
-}
-
-.decor.right {
-    right: 0;
-}
-
-/* ===== CARD ===== */
-.container,
-.birthday-card {
-    background: var(--white);
-    width: 90%;
-    max-width: 380px;
-    padding: 30px;
-    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
-    animation: fadeIn 1s ease;
 }
 
-.container h1 {
-    color: var(--sunset-orange);
-    margin-bottom: 10px;
+.landing h1 {
+    font-size: 42px;
+    color: var(--blue-1);
 }
 
-.container p {
+.landing p {
     color: #444;
 }
 
-input {
-    width: 100%;
-    padding: 12px;
-    margin: 15px 0;
-    border-radius: 10px;
-    border: 2px solid var(--sunset-orange);
-    outline: none;
-}
-
 button {
-    background: var(--sunset-orange);
+    background: var(--blue-2);
     color: white;
     border: none;
-    padding: 12px 25px;
-    border-radius: 12px;
-    cursor: pointer;
+    padding: 14px 30px;
+    border-radius: 14px;
     font-size: 16px;
+    cursor: pointer;
 }
 
 button:hover {
-    background: var(--sunset-orange-dark);
+    background: var(--blue-1);
+}
+
+/* FORM & CARD */
+.container,
+.birthday-card,
+.gallery {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 2px solid var(--blue-3);
 }
 
 .hidden {
     display: none;
 }
 
-/* ===== BIRTHDAY CARD ===== */
-.birthday-card h2 {
-    color: var(--sunset-orange);
+/* GALLERY */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.photo-grid img {
+    width: 100%;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* RESULT */
+#finalPhoto {
+    width: 160px;
+    border-radius: 50%;
     margin-bottom: 15px;
-    animation: blink 1.3s infinite;
 }
 
-.card {
-    border: 3px solid var(--sunset-orange);
-    padding: 20px;
-    border-radius: 15px;
-    background: #fff7ef;
-}
-
-.card h1 {
-    color: var(--sky-blue);
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.card p {
-    color: #333;
+.wish {
     font-size: 14px;
+    color: #333;
 }
 
-/* ===== ANIMATION ===== */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-}
-
-/* ===== CONFETTI ===== */
-#confetti {
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-    .landing {
-        flex-direction: column;
-        text-align: center;
-        justify-content: center;
-    }
-
-    .landing-text h1 {
-        font-size: 36px;
-    }
-
-    .landing-art {
-        font-size: 90px;
-    }
-}
