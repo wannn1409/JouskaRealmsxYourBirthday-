@@ -18,88 +18,55 @@
     
 <!-- ===== FORM DATA ===== -->
 <section class="container hidden" id="formSection">
-    <h2>Isi Data Kamu</h2>
+  <h2>Isi dulu ya 😊</h2>
 
-    <input type="text" id="nameInput" placeholder="Nama lengkap">
-    <input type="date" id="birthInput">
+  <input type="text" id="nameInput" placeholder="Nama lengkap">
+  <input type="text" id="classInput" placeholder="Kelas">
 
-    <select id="genderInput">
-        <option value="">Pilih jenis kelamin</option>
-        <option value="Laki-laki">Laki-laki</option>
-        <option value="Perempuan">Perempuan</option>
-    </select>
+  <select id="genderInput">
+    <option value="">Jenis kelamin</option>
+    <option value="Laki-laki">Laki-laki</option>
+    <option value="Perempuan">Perempuan</option>
+  </select>
 
-    <button onclick="toGallery()">Lanjut</button>
+  <button onclick="toNameCheck()">Lanjut</button>
 </section>
 
-<!-- ===== PILIH FOTO ===== -->
-<section class="gallery hidden" id="gallerySection">
-  <h2>Pilih salah satu foto kamu 🤍</h2>
 
-  <div class="slider">
-    <div class="slider-track" id="sliderTrack">
-      
-      <!-- SET ASLI -->
-      <div class="photo-box" onclick="selectPhoto(this)">
-        <img src="https://picsum.photos/400/225?1">
-      </div>
-      <div class="photo-box" onclick="selectPhoto(this)">
-        <img src="https://picsum.photos/400/225?2">
-      </div>
-      <div class="photo-box" onclick="selectPhoto(this)">
-        <img src="https://picsum.photos/400/225?3">
-      </div>
-      <div class="photo-box" onclick="selectPhoto(this)">
-        <img src="https://picsum.photos/400/225?4">
-      </div>
-      <div class="photo-box" onclick="selectPhoto(this)">
-        <img src="https://picsum.photos/400/225?5">
-      </div>
-      <div class="photo-box" onclick="selectPhoto(this)">
-        <img src="https://picsum.photos/400/225?6">
-      </div>
+<section class="confirm hidden" id="nameCheck">
+  <h2 id="nameText"></h2>
 
-      <!-- DUPLIKAT UNTUK LOOP -->
-      <div class="photo-box" onclick="selectPhoto(this)">
-        <img src="https://picsum.photos/400/225?1">
-      </div>
-      <div class="photo-box" onclick="selectPhoto(this)">
-        <img src="https://picsum.photos/400/225?2">
-      </div>
-      <div class="photo-box" onclick="selectPhoto(this)">
-        <img src="https://picsum.photos/400/225?3">
-      </div>
-      <div class="photo-box" onclick="selectPhoto(this)">
-        <img src="https://picsum.photos/400/225?4">
-      </div>
-      <div class="photo-box" onclick="selectPhoto(this)">
-        <img src="https://picsum.photos/400/225?5">
-      </div>
-      <div class="photo-box" onclick="selectPhoto(this)">
-        <img src="https://picsum.photos/400/225?6">
-      </div>
-
-    </div>
+  <div class="confirm-btn">
+    <button onclick="toClassCheck()">Iya 😊</button>
+    <button class="secondary" onclick="backToForm()">Bukan</button>
   </div>
+</section>
 
-  <button id="nextBtn" onclick="toResult()" disabled>
-    Lanjut
-  </button>
+    <section class="confirm hidden" id="classCheck">
+  <h2 id="classText"></h2>
+
+  <div class="confirm-btn">
+    <button onclick="toFinalReady()">Benar 👍</button>
+    <button class="secondary" onclick="backToForm()">Ubah</button>
+  </div>
+</section>
+
+    <section class="confirm hidden" id="readySection">
+  <h2>Okeee… siap ya 🎁</h2>
+  <button onclick="toResult()">Lihat Ucapan</button>
 </section>
 
 
 <!-- ===== RESULT ===== -->
 <section class="birthday-card hidden" id="resultSection">
-    <img id="finalPhoto">
-    <h2>HAPPY BIRTHDAY TO YOU 🎉</h2>
-    <h3 id="finalName"></h3>
+  <h2>🎉 Selamat Ulang Tahun 🎉</h2>
+  <h3 id="finalName"></h3>
 
-    <p class="wish">
-        Mudah-mudahan kamu selalu menjadi pribadi yang baik, bermanfaat,
-        dan menjadi diri sendiri di lingkungan sekitarmu,
-        baik di sekolah maupun di rumah 🤍
-    </p>
+  <p class="wish">
+    Semoga selalu sehat, bahagia, dan semua impianmu tercapai 🤍
+  </p>
 </section>
+
 
 <canvas id="confetti"></canvas>
 <script src="script.js"></script>
