@@ -63,3 +63,14 @@ function startConfetti() {
     }
     animate();
 }
+
+function toResult() {
+  document.getElementById('gallerySection').classList.add('hidden');
+  document.getElementById('resultSection').classList.remove('hidden');
+
+  // isi nama (contoh)
+  const name = document.getElementById('nameInput').value;
+  document.getElementById('finalName').innerText = name
+    ? `Untuk ${name} 🤍`
+    : 'Untuk Kamu 🤍';
+}
