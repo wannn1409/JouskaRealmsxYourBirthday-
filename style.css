@@ -160,3 +160,35 @@ button {
   }
 }
 
+.confirm {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fadeUp 0.7s ease;
+}
+
+.confirm-btn {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.secondary {
+  background: #ccc;
+  color: #333;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
