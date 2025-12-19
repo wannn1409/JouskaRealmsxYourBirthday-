@@ -34,21 +34,30 @@
 
 <!-- ===== PILIH FOTO ===== -->
 <section class="gallery hidden" id="gallerySection">
-    <h2>Yuk coba cari foto kamu diantara foto-foto berikut ini</h2>
+  <h2>Yuk coba cari foto kamu di antara foto-foto berikut ini</h2>
 
-   <div class="slider">
-  <div class="slider-track">
-    <img src="https://i.pravatar.cc/150?img=1" onclick="selectPhoto(this)">
-    <img src="https://i.pravatar.cc/150?img=2" onclick="selectPhoto(this)">
-    <img src="https://i.pravatar.cc/150?img=3" onclick="selectPhoto(this)">
-    <img src="https://i.pravatar.cc/150?img=4" onclick="selectPhoto(this)">
-    <img src="https://i.pravatar.cc/150?img=5" onclick="selectPhoto(this)">
-    <img src="https://i.pravatar.cc/150?img=6" onclick="selectPhoto(this)">
-    <img src="https://i.pravatar.cc/150?img=7" onclick="onclick="selectPhoto(this)">
-    <img src="https://i.pravatar.cc/150?img=8" onclick="selectPhoto(this)">
-    <img src="https://i.pravatar.cc/150?img=9" onclick="selectPhoto(this)">
+  <div class="multi-slider">
+    <div class="slider-track">
+      <!-- SET 1 -->
+      <div class="photo-box"><img src="https://picsum.photos/400/225?1"></div>
+      <div class="photo-box"><img src="https://picsum.photos/400/225?2"></div>
+      <div class="photo-box"><img src="https://picsum.photos/400/225?3"></div>
+      <div class="photo-box"><img src="https://picsum.photos/400/225?4"></div>
+      <div class="photo-box"><img src="https://picsum.photos/400/225?5"></div>
+      <div class="photo-box"><img src="https://picsum.photos/400/225?6"></div>
+
+      <!-- SET 2 (duplikat untuk loop mulus) -->
+      <div class="photo-box"><img src="https://picsum.photos/400/225?1"></div>
+      <div class="photo-box"><img src="https://picsum.photos/400/225?2"></div>
+      <div class="photo-box"><img src="https://picsum.photos/400/225?3"></div>
+      <div class="photo-box"><img src="https://picsum.photos/400/225?4"></div>
+      <div class="photo-box"><img src="https://picsum.photos/400/225?5"></div>
+      <div class="photo-box"><img src="https://picsum.photos/400/225?6"></div>
+    </div>
   </div>
-</div>
+
+  <button onclick="toResult()">Lanjut</button>
+</section>
 
 <!-- ===== RESULT ===== -->
 <section class="birthday-card hidden" id="resultSection">
