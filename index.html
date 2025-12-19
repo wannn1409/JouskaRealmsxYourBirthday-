@@ -34,30 +34,59 @@
 
 <!-- ===== PILIH FOTO ===== -->
 <section class="gallery hidden" id="gallerySection">
-  <h2>Yuk coba cari foto kamu di antara foto-foto berikut ini</h2>
+  <h2>Pilih salah satu foto kamu 🤍</h2>
 
-  <div class="multi-slider">
-    <div class="slider-track">
-      <!-- SET 1 -->
-      <div class="photo-box"><img src="https://picsum.photos/400/225?1"></div>
-      <div class="photo-box"><img src="https://picsum.photos/400/225?2"></div>
-      <div class="photo-box"><img src="https://picsum.photos/400/225?3"></div>
-      <div class="photo-box"><img src="https://picsum.photos/400/225?4"></div>
-      <div class="photo-box"><img src="https://picsum.photos/400/225?5"></div>
-      <div class="photo-box"><img src="https://picsum.photos/400/225?6"></div>
+  <div class="slider">
+    <div class="slider-track" id="sliderTrack">
+      
+      <!-- SET ASLI -->
+      <div class="photo-box" onclick="selectPhoto(this)">
+        <img src="https://picsum.photos/400/225?1">
+      </div>
+      <div class="photo-box" onclick="selectPhoto(this)">
+        <img src="https://picsum.photos/400/225?2">
+      </div>
+      <div class="photo-box" onclick="selectPhoto(this)">
+        <img src="https://picsum.photos/400/225?3">
+      </div>
+      <div class="photo-box" onclick="selectPhoto(this)">
+        <img src="https://picsum.photos/400/225?4">
+      </div>
+      <div class="photo-box" onclick="selectPhoto(this)">
+        <img src="https://picsum.photos/400/225?5">
+      </div>
+      <div class="photo-box" onclick="selectPhoto(this)">
+        <img src="https://picsum.photos/400/225?6">
+      </div>
 
-      <!-- SET 2 (duplikat untuk loop mulus) -->
-      <div class="photo-box"><img src="https://picsum.photos/400/225?1"></div>
-      <div class="photo-box"><img src="https://picsum.photos/400/225?2"></div>
-      <div class="photo-box"><img src="https://picsum.photos/400/225?3"></div>
-      <div class="photo-box"><img src="https://picsum.photos/400/225?4"></div>
-      <div class="photo-box"><img src="https://picsum.photos/400/225?5"></div>
-      <div class="photo-box"><img src="https://picsum.photos/400/225?6"></div>
+      <!-- DUPLIKAT UNTUK LOOP -->
+      <div class="photo-box" onclick="selectPhoto(this)">
+        <img src="https://picsum.photos/400/225?1">
+      </div>
+      <div class="photo-box" onclick="selectPhoto(this)">
+        <img src="https://picsum.photos/400/225?2">
+      </div>
+      <div class="photo-box" onclick="selectPhoto(this)">
+        <img src="https://picsum.photos/400/225?3">
+      </div>
+      <div class="photo-box" onclick="selectPhoto(this)">
+        <img src="https://picsum.photos/400/225?4">
+      </div>
+      <div class="photo-box" onclick="selectPhoto(this)">
+        <img src="https://picsum.photos/400/225?5">
+      </div>
+      <div class="photo-box" onclick="selectPhoto(this)">
+        <img src="https://picsum.photos/400/225?6">
+      </div>
+
     </div>
   </div>
 
-  <button onclick="toResult()">Lanjut</button>
+  <button id="nextBtn" onclick="toResult()" disabled>
+    Lanjut
+  </button>
 </section>
+
 
 <!-- ===== RESULT ===== -->
 <section class="birthday-card hidden" id="resultSection">
