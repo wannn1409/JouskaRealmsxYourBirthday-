@@ -1,194 +1,117 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+/* =========================
+   HELPER
+========================= */
+function show(id) {
+  document.getElementById(id).classList.remove('hidden');
 }
 
-body {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #87ceeb, #ff9a5c);
+function hide(id) {
+  document.getElementById(id).classList.add('hidden');
 }
 
-/* ===== SEMUA SECTION DI TENGAH ===== */
-section {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-}
+/* =========================
+   FLOW LOGIC
+========================= */
 
-/* ===== LANDING ===== */
-.landing h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
+// STEP 1 → dari FORM ke KONFIRMASI NAMA
+function toNameCheck() {
+  const name = document.getElementById('nameInput').value.trim();
+  const kelas = document.getElementById('classInput').value.trim();
+  const gender = document.getElementById('genderInput').value;
 
-.landing p {
-    margin-bottom: 20px;
-    font-size: 1.1rem;
-}
-
-button {
-    padding: 12px 30px;
-    font-size: 16px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    background: #ff7a18;
-    color: white;
-}
-
-/* ===== FORM ===== */
-.container input,
-.container select {
-    width: 260px;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 8px;
-    border: none;
-}
-
-/* ===== GALLERY ===== */
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.photo-grid img {
-    width: 100px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-/* ===== RESULT ===== */
-.birthday-card img {
-    width: 150px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-}
-
-.slider {
-  width: 320px;
-  overflow: hidden;
-  margin-top: 20px;
-}
-
-.slider-track {
-  display: flex;
-  gap: 15px;
-  animation: slide 18s linear infinite;
-}
-
-.slider img {
-  width: 100px;
-  border-radius: 12px;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-/* animasi geser */
-@keyframes slide {
-  from {
-    transform: translateX(0);
+  if (!name || !kelas || !gender) {
+    alert('Lengkapi dulu ya datanya 😊');
+    return;
   }
-  to {
-    transform: translateX(-60%);
+
+  hide('formSection');
+  show('nameCheck');
+
+  document.getElementById('nameText').innerText =
+    `Ohh, nama kamu ${name} ya?`;
+}
+
+// STEP 2 → balik ke FORM
+function backToForm() {
+  hide('nameCheck');
+  hide('classCheck');
+  hide('readySection');
+  show('formSection');
+}
+
+// STEP 3 → KONFIRMASI KELAS
+function toClassCheck() {
+  hide('nameCheck');
+  show('classCheck');
+
+  const kelas = document.getElementById('classInput').value.trim();
+
+  document.getElementById('classText').innerText =
+    `Kamu dari kelas ${kelas}, benar?`;
+}
+
+// STEP 4 → TRANSISI SEBELUM UCAPAN
+function toFinalReady() {
+  hide('classCheck');
+  show('readySection');
+}
+
+// STEP 5 → HALAMAN UCAPAN
+function toResult() {
+  hide('readySection');
+  show('resultSection');
+
+  const name = document.getElementById('nameInput').value.trim();
+  const kelas = document.getElementById('classInput').value.trim();
+  const gender = document.getElementById('genderInput').value;
+
+  // Nama utama
+  document.getElementById('finalName').innerText =
+    `Untuk ${name} 🤍`;
+
+  // Info tambahan (opsional)
+  let genderText =
+    gender === 'Laki-laki' ? 'hebat' : 'luar biasa';
+
+  document.getElementById('finalInfo').innerText =
+    `Anak kelas ${kelas} yang ${genderText}`;
+
+  // (opsional) confetti otomatis
+  startConfetti();
+}
+
+/* =========================
+   CONFETTI (OPSIONAL)
+========================= */
+const canvas = document.getElementById('confetti');
+if (canvas) {
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let confettis = [];
+
+  function startConfetti() {
+    confettis = Array.from({ length: 150 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height - canvas.height,
+      r: Math.random() * 6 + 2,
+      d: Math.random() * 5 + 2,
+      color: `hsl(${Math.random() * 360}, 100%, 50%)`
+    }));
+    animateConfetti();
   }
-}
 
-/* ===== MULTI ROW SLIDER ===== */
-.multi-slider {
-  width: 100%;
-  max-width: 900px;
-  overflow: hidden;
-  margin-top: 25px;
-}
-
-/* ===== SLIDER FINAL ===== */
-.slider {
-  width: 100%;
-  max-width: 1000px;
-  overflow: hidden;
-  margin-top: 20px;
-}
-
-.slider-track {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  animation: infiniteSlide 30s linear infinite;
-}
-
-.photo-box {
-  flex: 0 0 calc(25% - 15px);
-  aspect-ratio: 16 / 9;
-  border-radius: 14px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.photo-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.photo-box:hover {
-  transform: scale(1.05);
-}
-
-.photo-box.selected {
-  outline: 4px solid #ff7a18;
-  box-shadow: 0 0 20px rgba(255,122,24,0.6);
-}
-
-@keyframes infiniteSlide {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-@media (max-width: 768px) {
-  .photo-box {
-    flex: 0 0 calc(50% - 15px);
+  function animateConfetti() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    confettis.forEach(c => {
+      ctx.beginPath();
+      ctx.fillStyle = c.color;
+      ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2);
+      ctx.fill();
+      c.y += c.d;
+      if (c.y > canvas.height) c.y = -10;
+    });
+    requestAnimationFrame(animateConfetti);
   }
 }
-
-.confirm {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  animation: fadeUp 0.7s ease;
-}
-
-.confirm-btn {
-  display: flex;
-  gap: 15px;
-  margin-top: 25px;
-}
-
-.secondary {
-  background: #ccc;
-  color: #333;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
