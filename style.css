@@ -73,6 +73,36 @@ button {
     margin-bottom: 15px;
 }
 
+.slider {
+  width: 320px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.slider-track {
+  display: flex;
+  gap: 15px;
+  animation: slide 18s linear infinite;
+}
+
+.slider img {
+  width: 100px;
+  border-radius: 12px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* animasi geser */
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-60%);
+  }
+}
+
+
 /* ===== HIDDEN ===== */
 .hidden {
     display: none;
