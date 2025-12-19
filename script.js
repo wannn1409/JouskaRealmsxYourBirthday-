@@ -25,12 +25,32 @@ function toGallery() {
     gallerySection.classList.remove("hidden");
 }
 
-function selectPhoto(img) {
-    finalPhoto.src = img.src;
-    finalName.innerText = document.getElementById("nameInput").value;
+let selectedPhoto = null;
 
-    gallerySection.classList.add("hidden");
-    resultSection.classList.remove("hidden");
+function selectPhoto(el) {
+  document.querySelectorAll('.photo-box').forEach(photo => {
+    photo.classList.remove('selected');
+  });
+
+  el.classList.add('selected');
+  selectedPhoto = el.querySelector('img').src;
+
+  document.getElementById('nextBtn').disabled = false;
+}
+
+function toResult() {
+  if (!selectedPhoto) return;
+
+  document.getElementById('gallerySection').classList.add('hidden');
+  document.getElementById('resultSection').classList.remove('hidden');
+
+  document.getElementById('finalPhoto').src = selectedPhoto;
+
+  const name = document.getElementById('nameInput').value;
+  document.getElementById('finalName').innerText =
+    name ? `Untuk ${name} 🤍` : 'Untuk Kamu 🤍';
+}
+
 
     startConfetti();
 }
