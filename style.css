@@ -110,20 +110,28 @@ button {
   margin-top: 25px;
 }
 
-.slider-track {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 15px;
-  animation: slideMulti 22s linear infinite;
+/* ===== SLIDER FINAL ===== */
+.slider {
+  width: 100%;
+  max-width: 1000px;
+  overflow: hidden;
+  margin-top: 20px;
 }
 
-/* foto 16:9 */
+.slider-track {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  animation: infiniteSlide 30s linear infinite;
+}
+
 .photo-box {
-  position: relative;
-  width: 100%;
+  flex: 0 0 calc(25% - 15px);
   aspect-ratio: 16 / 9;
-  overflow: hidden;
   border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .photo-box img {
@@ -132,18 +140,23 @@ button {
   object-fit: cover;
 }
 
-/* animasi geser horizontal */
-@keyframes slideMulti {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
+.photo-box:hover {
+  transform: scale(1.05);
+}
+
+.photo-box.selected {
+  outline: 4px solid #ff7a18;
+  box-shadow: 0 0 20px rgba(255,122,24,0.6);
+}
+
+@keyframes infiniteSlide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .photo-box {
+    flex: 0 0 calc(50% - 15px);
   }
 }
 
-
-/* ===== HIDDEN ===== */
-.hidden {
-    display: none;
-}
