@@ -3,77 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Birthday</title>
+    <title>Birthday For You</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ===== LANDING / BANNER ===== -->
+<!-- ===== LANDING ===== -->
 <section class="landing" id="landing">
-    <div class="landing-text">
-        <h1>BIRTHDAY <span>CARD FOR YOU</span></h1>
-        <p>Kebahagiaan untukmu di hari Ulang Tahunmu ! 🎉</p>
-        <button onclick="goToInput()">Mulai</button>
-    </div>
+    <h1>BIRTHDAY WEBSITE</h1>
+    <p>Sebuah kejutan kecil untuk hari spesialmu 🎂</p>
+    <button onclick="toForm()">Mulai</button>
+</section>
 
-    <div class="landing-art">
-        🎂🎉🎈
+<!-- ===== FORM DATA ===== -->
+<section class="container hidden" id="formSection">
+    <h2>Isi Data Kamu</h2>
+
+    <input type="text" id="nameInput" placeholder="Nama lengkap">
+    <input type="date" id="birthInput">
+
+    <select id="genderInput">
+        <option value="">Pilih jenis kelamin</option>
+        <option value="Laki-laki">Laki-laki</option>
+        <option value="Perempuan">Perempuan</option>
+    </select>
+
+    <button onclick="toGallery()">Lanjut</button>
+</section>
+
+<!-- ===== PILIH FOTO ===== -->
+<section class="gallery hidden" id="gallerySection">
+    <h2>Yuk coba cari foto kamu diantara foto-foto berikut ini</h2>
+
+    <div class="photo-grid">
+        <!-- contoh foto -->
+        <img src="https://i.pravatar.cc/150?img=1" onclick="selectPhoto(this)">
+        <img src="https://i.pravatar.cc/150?img=2" onclick="selectPhoto(this)">
+        <img src="https://i.pravatar.cc/150?img=3" onclick="selectPhoto(this)">
+        <img src="https://i.pravatar.cc/150?img=4" onclick="selectPhoto(this)">
+        <img src="https://i.pravatar.cc/150?img=5" onclick="selectPhoto(this)">
+        <img src="https://i.pravatar.cc/150?img=6" onclick="selectPhoto(this)">
+        <img src="https://i.pravatar.cc/150?img=7" onclick="selectPhoto(this)">
+        <img src="https://i.pravatar.cc/150?img=8" onclick="selectPhoto(this)">
+        <img src="https://i.pravatar.cc/150?img=9" onclick="selectPhoto(this)">
     </div>
 </section>
 
-<!-- ===== INPUT NAMA ===== -->
-<div class="container hidden" id="inputSection">
-    <h1>🎉 Birthday Gift 🎉</h1>
-    <p>Masukkan nama lengkap kamu</p>
-    <input type="text" id="nameInput" placeholder="Nama kamu">
-    <button onclick="showBirthday()">Lihat Ucapan</button>
-</div>
+<!-- ===== RESULT ===== -->
+<section class="birthday-card hidden" id="resultSection">
+    <img id="finalPhoto">
+    <h2>HAPPY BIRTHDAY TO YOU 🎉</h2>
+    <h3 id="finalName"></h3>
 
-<!-- ===== CARD ===== -->
-<div class="birthday-card hidden" id="cardSection">
-    <h2>HAPPY BIRTHDAY!!</h2>
-    <div class="card">
-        <h1 id="nameOutput"></h1>
-        <p>
-            Selamat ulang tahun 🎂 <br>
-            Semoga semua keinginanmu tercapai ✨
-        </p>
-    </div>
-    <br>
-    <button onclick="reset()">Ulangi</button>
-</div>
+    <p class="wish">
+        Mudah-mudahan kamu selalu menjadi pribadi yang baik, bermanfaat,
+        dan menjadi diri sendiri di lingkungan sekitarmu,
+        baik di sekolah maupun di rumah 🤍
+    </p>
+</section>
 
 <canvas id="confetti"></canvas>
-
 <script src="script.js"></script>
-</body>
-</html>
-
-    <!-- Input Nama -->
-    <div class="container" id="inputSection">
-        <h1>🎉 Birthday Gift 🎉</h1>
-        <p>Masukkan nama kamu</p>
-        <input type="text" id="nameInput" placeholder="Nama kamu">
-        <button onclick="showBirthday()">Lihat Ucapan</button>
-    </div>
-
-    <!-- Kartu Ulang Tahun -->
-    <div class="birthday-card hidden" id="cardSection">
-        <h2>HAPPY BIRTHDAY!!</h2>
-        <div class="card">
-            <h1 id="nameOutput"></h1>
-            <p>
-                Selamat ulang tahun 🎂 <br>
-                Semoga semua keinginanmu tercapai ✨
-            </p>
-        </div>
-        <br>
-        <button onclick="reset()">Ulangi</button>
-    </div>
-
-    <!-- Confetti -->
-    <canvas id="confetti"></canvas>
-
-    <script src="script.js"></script>
 </body>
 </html>
